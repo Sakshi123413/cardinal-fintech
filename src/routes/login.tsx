@@ -11,7 +11,7 @@ import { Field } from "@/components/common/FormModal";
 import { useAuth } from "@/context/auth";
 import { TOKEN_KEY, USER_KEY } from "@/services/api";
 
-const STATIC_EMAIL = "admin@novabank.com";
+const STATIC_EMAIL = "admin@ciwallet.com";
 const STATIC_PASSWORD = "admin123";
 
 const schema = z.object({
@@ -61,7 +61,7 @@ function LoginPage() {
           <div className="grid h-10 w-10 place-items-center rounded-lg bg-sidebar-primary">
             <Landmark className="h-5 w-5 text-sidebar-primary-foreground" />
           </div>
-          <span className="text-lg font-semibold">Nova Bank</span>
+          <span className="text-lg font-semibold">CI Wallet</span>
         </div>
         <div>
           <h2 className="text-3xl font-semibold leading-tight">
@@ -72,7 +72,7 @@ function LoginPage() {
           </p>
         </div>
         <p className="text-xs text-sidebar-foreground/50">
-          © {new Date().getFullYear()} Nova Bank. All rights reserved.
+          © {new Date().getFullYear()} CI Wallet. All rights reserved.
         </p>
       </div>
 

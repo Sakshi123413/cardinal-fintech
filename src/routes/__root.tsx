@@ -15,7 +15,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nova Bank — Wallet Management" },
+      { title: "CI Wallet — Wallet Management" },
       { name: "description", content: "Enterprise wallet management dashboard" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],

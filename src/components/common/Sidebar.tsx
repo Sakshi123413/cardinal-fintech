@@ -49,7 +49,7 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             <div className="grid h-9 w-9 place-items-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
               <Landmark className="h-5 w-5" />
             </div>
-            <span className="text-base">Nova Bank</span>
+            <span className="text-base">CI Wallet</span>
           </Link>
           <button onClick={onClose} className="lg:hidden text-sidebar-foreground/80 hover:text-sidebar-foreground">
             <X className="h-5 w-5" />
