@@ -60,7 +60,7 @@ function SignupPage() {
           <div className="grid h-10 w-10 place-items-center rounded-lg bg-sidebar-primary">
             <Landmark className="h-5 w-5 text-sidebar-primary-foreground" />
           </div>
-          <span className="text-lg font-semibold">Nova Bank</span>
+          <span className="text-lg font-semibold">CI Wallet</span>
         </div>
         <div>
           <h2 className="text-3xl font-semibold leading-tight">
@@ -70,7 +70,7 @@ function SignupPage() {
             Spin up wallets, manage permissions, and ship faster.
           </p>
         </div>
-        <p className="text-xs text-sidebar-foreground/50">© {new Date().getFullYear()} Nova Bank</p>
+        <p className="text-xs text-sidebar-foreground/50">© {new Date().getFullYear()} CI Wallet</p>
       </div>
 
       <div className="flex items-center justify-center p-6 sm:p-12">

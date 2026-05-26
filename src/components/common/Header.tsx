@@ -25,7 +25,7 @@ export function Header({ onMenu }: { onMenu: () => void }) {
     <header className="sticky top-0 z-20 flex h-16 items-center gap-3 border-b bg-card/80 px-4 backdrop-blur supports-[backdrop-filter]:bg-card/60 lg:px-6">
       <button
         onClick={onMenu}
-        className="rounded-md p-2 text-muted-foreground hover:bg-muted lg:hidden"
+        className="rounded-md p-2 text-muted-foreground hover:bg-muted md:hidden"
         aria-label="Open menu"
       >
         <Menu className="h-5 w-5" />
