@@ -23,7 +23,7 @@ interface Group {
 
 const schema = z.object({
   name: z.string().trim().min(2, "Name required").max(60),
-  permissionIds: z.array(z.number()).default([]),
+  permissionIds: z.array(z.number()),
 });
 type FormVals = z.infer<typeof schema>;
 
