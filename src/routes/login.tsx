@@ -85,6 +85,12 @@ function LoginPage() {
             </p>
           </div>
 
+          <div className="mb-4 rounded-md border border-border bg-muted/40 p-3 text-xs text-muted-foreground">
+            <p className="font-medium text-foreground">Demo credentials</p>
+            <p>Email: {STATIC_EMAIL}</p>
+            <p>Password: {STATIC_PASSWORD}</p>
+          </div>
+
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <Field label="Email" error={errors.email?.message}>
               <Input type="email" placeholder="you@company.com" autoComplete="email" {...register("email")} />
