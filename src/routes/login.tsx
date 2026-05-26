@@ -9,7 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/common/FormModal";
 import { useAuth } from "@/context/auth";
-import { apiError } from "@/services/api";
+import { TOKEN_KEY, USER_KEY } from "@/services/api";
+
+const STATIC_EMAIL = "admin@novabank.com";
+const STATIC_PASSWORD = "admin123";
 
 const schema = z.object({
   email: z.string().trim().email("Enter a valid email"),
@@ -20,14 +23,14 @@ type FormVals = z.infer<typeof schema>;
 export const Route = createFileRoute("/login")({ component: LoginPage });
 
 function LoginPage() {
-  const { login, isAuthenticated, ready } = useAuth();
+  const { isAuthenticated, ready } = useAuth();
   const navigate = useNavigate();
   const [showPwd, setShowPwd] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormVals>({
     resolver: zodResolver(schema),
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: STATIC_EMAIL, password: STATIC_PASSWORD },
   });
 
   useEffect(() => {
@@ -37,11 +40,15 @@ function LoginPage() {
   const onSubmit = async (data: FormVals) => {
     setLoading(true);
     try {
-      await login(data.email, data.password);
+      if (data.email !== STATIC_EMAIL || data.password !== STATIC_PASSWORD) {
+        toast.error("Invalid credentials");
+        return;
+      }
+      const user = { userId: 1, email: STATIC_EMAIL, name: "Admin" };
+      localStorage.setItem(TOKEN_KEY, "static-demo-token");
+      localStorage.setItem(USER_KEY, JSON.stringify(user));
       toast.success("Welcome back!");
-      navigate({ to: "/dashboard" });
-    } catch (err) {
-      toast.error(apiError(err, "Invalid credentials"));
+      window.location.href = "/dashboard";
     } finally {
       setLoading(false);
     }
@@ -76,6 +83,12 @@ function LoginPage() {
             <p className="mt-1.5 text-sm text-muted-foreground">
               Enter your credentials to access the dashboard.
             </p>
+          </div>
+
+          <div className="mb-4 rounded-md border border-border bg-muted/40 p-3 text-xs text-muted-foreground">
+            <p className="font-medium text-foreground">Demo credentials</p>
+            <p>Email: {STATIC_EMAIL}</p>
+            <p>Password: {STATIC_PASSWORD}</p>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
